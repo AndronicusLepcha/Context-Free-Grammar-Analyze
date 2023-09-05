@@ -40,18 +40,17 @@ void main(){
         }
         beta[index++]='\0';
         index=bindex=0;
-        //printf("beta is %s\n",beta);
         FilterBeta(p,beta);
         
     }
 
     void findAlpha(char *p,int index){
         while(p[index] != '|' && index<strlen(p)){
-            buffer[bindex]=p[index];
+            alpha[bindex]=p[index];
             bindex++;
             index++;
         }
-        buffer[bindex]='\0';
+        alpha[bindex]='\0';
         printf("\nAplha is %s\n",buffer); 
         index=0;
         bindex=0;
@@ -98,6 +97,8 @@ void main(){
         printf("\nEnter the production format(A->Abb|ba): ");
         scanf("%s",&p1);
         returnIndex(p1);
+        printf("****Output***\n");
+        printf(" %s \n A->%sA' \n A'->%sA'|E",p1,beta,alpha);
 
     }
 }
